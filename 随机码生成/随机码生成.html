@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- style -->
+    <style>
+        .code_tip {
+            position: relative;
+            width: 150px;
+            height: 40px;
+            border: 1px solid #000;
+            overflow: hidden;
+        }
+        
+        .code {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 40px;
+        }
+        
+        .code_box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="code_tip">
+        <div class="code"></div>
+        <div class="code_box" title="点击刷新验证码"></div>
+    </div>
+
+    <script>
+        // 验证码写入到指定位置
+        $(".code").text(code(4));
+        $(".code_box").click(() => {
+            $(".code").text(code(4));
+        });
+
+        /* 自动生成随机验证码 */
+        function code(code_length) {
+            let code_tips = "";
+            let content = [];
+
+            let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+            /* 重复数字 */
+            content = content.concat(num);
+
+            /* 大写字母 */
+            for (let a = 65; a <= 90; a++) {
+                content.push(String.fromCharCode(a));
+            };
+
+            /* 重复数字 */
+            content = content.concat(num);
+
+            /* 小写字母 */
+            for (let b = 97; b <= 122; b++) {
+                content.push(String.fromCharCode(b));
+            };
+
+            /* 重复数字 */
+            content = content.concat(num);
+
+            /* 输出长度 */
+            for (let c = 0; c < code_length; c++) {
+                code_tips += content[Math.floor(Math.random() * content.length)];
+            };
+
+            return code_tips;
+        };
+    </script>
+
+    <!-- by RealMaybe -->
+    <!-- 
+        * @Author: RealMaybe 
+        * @Date: 2022-12-22 22:08:34 
+        * @Last Modified by: RealMaybe 
+        * @Last Modified time: 2022-12-22 22:15:55
+    -->
+</body>
+
+</html>
+
+</html>
