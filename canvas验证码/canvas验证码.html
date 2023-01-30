@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas登录</title>
+    <!-- jquery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- style -->
+    <style>
+        /* public */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+        
+        input,
+        textarea {
+            border: none;
+            outline: none;
+        }
+        /* body */
+        
+        body {
+            background: url(./images/star1.png) 0 0;
+            background-size: 100%;
+        }
+        /* system */
+        
+        #system {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 430px;
+            margin: -215px 0 0 -250px;
+            padding: 20px;
+            border-radius: 30px;
+            background-color: rgba(240, 240, 240, .7);
+        }
+        
+        .Content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .Content h1,
+        .Content p {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .Content p {
+            padding: 0 30px;
+            clear: both;
+            /* overflow: hidden; */
+        }
+        
+        .index_input {
+            width: 400px;
+            height: 50px;
+            padding: 10px;
+            font-size: 17px;
+            text-align: center;
+            background-color: rgba(240, 240, 240, .5);
+            border: 0;
+        }
+        
+        .code {
+            width: 190px;
+            float: left;
+        }
+        
+        #canvas {
+            float: right;
+            background: rgba(240, 240, 240, .1);
+            cursor: pointer;
+        }
+        
+        #Content_btn {
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+            line-height: 48px;
+            border-radius: 25px;
+            background-color: rgba(0, 0, 200, .1);
+        }
+        
+        #Content_btn:hover {
+            background-color: rgba(0, 30, 230, .2);
+        }
+        
+        .logContent {
+            width: 100%;
+            height: 290px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="system">
+        <div class="Content">
+            <h1>系 统 登 录</h1>
+            <div class="logContent">
+                <p>
+                    <input type="text" class="index_input" id="account" placeholder="请输入账号">
+                </p>
+                <p>
+                    <input type="password" class="index_input" id="password" placeholder="请输入密码">
+                </p>
+                <p>
+                    <input type="text" class="index_input code" id="ver_code" placeholder="请输入随机验证码">
+                    <canvas id="canvas" width="190" height="50">您的浏览器不支持canvas, 请升级或更换您的浏览器</canvas>
+                </p>
+                <p>
+                    <a id="Content_btn" class="logContent_btn" href="javascript:void(0);">登 录</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* 随机数字生成, 用于随机颜色生成 */
+        function num(n, m) {
+            var result = Math.random() * (m + 1 - n) + n;
+            while (result > m) {
+                result = Math.random() * (m + 1 - n) + n;
+            };
+            return result;
+        };
+
+        /* 自动生成随机验证码 */
+        function code(code_length) {
+            let code_tips = "";
+            let content = [];
+            let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+            /* 重复数字 */
+            content = content.concat(num);
+            /* 大写字母 */
+            for (let a = 65; a <= 90; a++) {
+                content.push(String.fromCharCode(a));
+            };
+            /* 重复数字 */
+            content = content.concat(num);
+            /* 小写字母 */
+            for (let b = 97; b <= 122; b++) {
+                content.push(String.fromCharCode(b));
+            };
+            /* 重复数字 */
+            content = content.concat(num);
+            /* 输出长度 */
+            for (let c = 0; c < code_length; c++) {
+                code_tips += content[Math.floor(Math.random() * content.length)];
+            };
+            return code_tips;
+        };
+        let code_tip = code(6);
+
+        /* canvas */
+        function codeTips() {
+            const myCanvas = document.querySelector("#canvas");
+            const ctx = myCanvas.getContext("2d");
+            // 清除上一次的绘制
+            ctx.clearRect(0, 0, 200, 60);
+            // 阴影左右偏离的距离
+            ctx.shadowOffsetX = 1;
+            // 阴影上下偏离的距离
+            ctx.shadowOffsetY = 1;
+            // 模糊状态
+            ctx.shadowBlur = 10;
+            // 阴影颜色
+            ctx.shadowColor = "rgb(" + num(0, 255) + "," + num(0, 255) + "," + num(0, 255) + ")";
+            // 文字颜色
+            ctx.fillStyle = "rgb(" + num(0, 255) + "," + num(0, 255) + "," + num(0, 255) + ")";
+            // 文字字体
+            ctx.font = "35px 微软雅黑";
+            // 文字左右对齐
+            ctx.textAlign = "center";
+            // 文字上下对齐
+            ctx.textBaseline = "middle";
+            // 文字内容、坐标
+            ctx.fillText(code_tip, 90, 29);
+        };
+        codeTips();
+
+        // 点击验证码图像的时候刷新
+        $("#canvas").click(() => {
+            code_tip = code(6);
+            codeTips();
+        });
+
+        // 登录按钮的验证
+        $("#Content_btn").click(() => {
+            if ($("#ver_code").val() == code_tip) {
+                alert("登陆成功");
+            } else {
+                alert("验证码错误");
+            }
+        });
+    </script>
+</body>
+
+</html>
