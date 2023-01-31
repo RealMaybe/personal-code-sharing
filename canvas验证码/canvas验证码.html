@@ -1,3 +1,10 @@
+<!-- 
+ * @Author: RealMaybe 
+ * @Date: 2023-01-31 10:11:12 
+ * @Last Modified by: RealMaybe 
+ * @Last Modified time: 2023-01-31 10:11:12
+ -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,6 +61,11 @@
             height: 100%;
         }
         
+        .logContent {
+            width: 100%;
+            height: 290px;
+        }
+        
         .Content h1,
         .Content p {
             width: 100%;
@@ -66,7 +78,6 @@
         .Content p {
             padding: 0 30px;
             clear: both;
-            /* overflow: hidden; */
         }
         
         .index_input {
@@ -103,24 +114,22 @@
         #Content_btn:hover {
             background-color: rgba(0, 30, 230, .2);
         }
-        
-        .logContent {
-            width: 100%;
-            height: 290px;
-        }
     </style>
 </head>
 
 <body>
+
+    <!-- 本页面仅设置了canvas验证码的验证功能，对于账号密码的验证没有做处理 -->
+
     <div id="system">
         <div class="Content">
             <h1>系 统 登 录</h1>
             <div class="logContent">
                 <p>
-                    <input type="text" class="index_input" id="account" placeholder="请输入账号">
+                    <input type="text" class="index_input" id="account" placeholder="请输入账号" value="admin">
                 </p>
                 <p>
-                    <input type="password" class="index_input" id="password" placeholder="请输入密码">
+                    <input type="password" class="index_input" id="password" placeholder="请输入密码" value="123456">
                 </p>
                 <p>
                     <input type="text" class="index_input code" id="ver_code" placeholder="请输入随机验证码">
@@ -134,13 +143,13 @@
     </div>
 
     <script>
-        /* 随机数字生成, 用于随机颜色生成 */
+        /* 随机数字生成, 用于随机的颜色生成 */
         function num(n, m) {
             var result = Math.random() * (m + 1 - n) + n;
             while (result > m) {
                 result = Math.random() * (m + 1 - n) + n;
             };
-            return result;
+            return Math.floor(result);;
         };
 
         /* 自动生成随机验证码 */
@@ -186,7 +195,7 @@
             ctx.shadowColor = "rgb(" + num(0, 255) + "," + num(0, 255) + "," + num(0, 255) + ")";
             // 文字颜色
             ctx.fillStyle = "rgb(" + num(0, 255) + "," + num(0, 255) + "," + num(0, 255) + ")";
-            // 文字字体
+            // 文字字号、字体
             ctx.font = "35px 微软雅黑";
             // 文字左右对齐
             ctx.textAlign = "center";
@@ -199,16 +208,22 @@
 
         // 点击验证码图像的时候刷新
         $("#canvas").click(() => {
+            // 刷新验证码文本
             code_tip = code(6);
+            // 刷新文本颜色样式
             codeTips();
         });
 
         // 登录按钮的验证
         $("#Content_btn").click(() => {
-            if ($("#ver_code").val() == code_tip) {
-                alert("登陆成功");
+            if ($("#account").val() == "" || $("#password").val() == "") {
+                alert("账号或密码不能为空！");
             } else {
-                alert("验证码错误");
+                if ($("#ver_code").val() == code_tip) {
+                    alert("登录成功");
+                } else {
+                    alert("验证码错误");
+                }
             }
         });
     </script>
