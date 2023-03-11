@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洛少爷生日倒计时</title>
+    <!-- style -->
+    <link rel="stylesheet" href="./css/pe.css">
+</head>
+
+<body id="body">
+
+    <!-- PE -->
+    <main id="main" class="main">
+        <!-- 底图 -->
+        <section class="banner">
+            <ul class="banner_img">
+                <li> <img src="./images/lsy1.jpg" alt=""> </li>
+                <li> <img src="./images/lsy2.jpg" alt=""> </li>
+                <li> <img src="./images/lsy3.jpg" alt=""> </li>
+                <li> <img src="./images/lsy4.jpg" alt=""> </li>
+            </ul>
+            <ul class="banner_dot">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+
+        <!-- 倒计时文本 -->
+        <section class="timer">
+            <div class="timer_main">
+                <div class="hisName">洛少爷2023生日倒计时</div>
+                <div class="days">
+                    <span class="day">0</span>
+                    <span class="text">天</span>
+                </div>
+                <p class="exact_value">
+                    <span>0</span>天
+                    <span>0</span>时
+                    <span>0</span>分
+                    <span>0</span>秒
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <section id="agreement"></section>
+
+    <section class="over_time" style="display: none"></section>
+
+    <!-- public javascript -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- javascript -->
+    <script src="./js/compatible.js"></script>
+    <script src="./js/banner.js"></script>
+    <script src="./js/time.js"></script>
+    <script src="./js/agreement.js"></script>
+
+</body>
+
+</html>
