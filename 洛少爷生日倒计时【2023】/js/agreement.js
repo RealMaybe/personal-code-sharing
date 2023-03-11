@@ -13,7 +13,7 @@ function agreement() {
             1、如果您发现本页面存在bug，欢迎反馈至本人工作邮箱：<span>zlz_0910@163.com&nbsp;</span>，或反馈至<a href="https://support.qq.com/product/415649" target="_blank">RealMaybe个人留言板</a>。
         </p>
         <p>2、本页面将于2023年8月15日 0时 停止服务。2024年将上线洛少爷生日倒计时（2024），敬请期待。</p>
-        <p class="over_time">距离本页面停止服务还有00天00时00分00秒</p>
+        <p class="over_time" style="text-indent: 0; font-size: 1rem; text-align: center;">距离本页面停止服务还有00天00时00分00秒</p>
         <p>3、本页面已公开源码内容，请自行访问、下载相关内容。</p>
         <p>
             <strong>4、项目开源地址:</strong><br>
@@ -45,8 +45,6 @@ function agreement() {
 
 // over time
 function overTime() {
-    let overSpans = document.querySelector(".over_time");
-
     let now_time = new Date().getTime();
     let target_time = new Date("2023-08-15 0:0:0").getTime();
     let difference = (target_time - now_time) / 1000;
@@ -62,7 +60,7 @@ function overTime() {
     let days = numZero(parseInt(day));
 
     let stop = "距离本页面停止服务还有" + days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
-    overSpans.innerText = stop;
+    $(".over_time").html(stop);
 
     // console.log(seconds + minutes + hours + days);
     return seconds + minutes + hours + days;
