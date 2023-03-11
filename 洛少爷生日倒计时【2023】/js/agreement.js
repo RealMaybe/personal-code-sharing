@@ -19,8 +19,6 @@ function agreement() {
             <strong>4、项目开源地址:</strong><br>
             <span>&emsp;gitee:</span>
             <a href="https://gitee.com/RealMaybe0429/personal-code-sharing.git" target="_blank">RealMaybe个人代码分享</a><br>
-            <span>&emsp;github:</span>
-            <a href="https://github.com/RealMaybe/personal-code-sharing.git" target="_blank">RealMaybe个人代码分享</a>
         </p>
 
         <h2>使用要求</h2>
