@@ -18,3 +18,21 @@ main {
   height: auto;
   margin: 30px auto;
 }
+a {
+  color: #2850c8;
+}
+.go_back {
+  width: 200px;
+  height: 50px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  color: #000;
+  border-radius: 25px;
+  box-shadow: 1px 1px 10px #333;
+}
+.go_back:hover {
+  background-color: #eee;
+}
