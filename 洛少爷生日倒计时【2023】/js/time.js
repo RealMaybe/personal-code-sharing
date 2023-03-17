@@ -19,10 +19,10 @@ function time() {
     spans[2].innerText = minutes;
     spans[3].innerText = seconds;
 
-    return days + 1;
+    $(".day").html(days + 1);
 };
 
-// 数字如果小于零则一直显示0
+/* 数字如果小于零则一直显示0 */
 function numZero(num) {
     if (num > 0) {
         return num = num;
@@ -32,6 +32,4 @@ function numZero(num) {
 };
 
 $(".day").html(time());
-let birthDay_time = setInterval(() => {
-    $(".day").html(time());
-}, 1000);
+let birthDay_time = setInterval(time, 1000);

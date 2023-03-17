@@ -1,4 +1,4 @@
-// 轮播图
+/* 轮播图 */
 function animation() {
     let index = 0;
 
@@ -31,9 +31,9 @@ function animation() {
     */
 };
 
-// 轮播图
-// animation();
+/* 轮播图 */
+animation();
 
-// 浏览器窗口大小监听
+/* 浏览器窗口大小监听 */
 win_size();
 $(window).resize(win_size());

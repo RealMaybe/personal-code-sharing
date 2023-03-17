@@ -1,4 +1,4 @@
-// 内容渲染
+/* 内容渲染 */
 function agreement() {
     let agreement = `
     <!-- 标题 -->
@@ -43,7 +43,7 @@ function agreement() {
     $("#agreement").html(agreement);
 };
 
-// over time
+/* over time */
 function overTime() {
     let now_time = new Date().getTime();
     let target_time = new Date("2023-08-15 0:0:0").getTime();
@@ -62,24 +62,23 @@ function overTime() {
     let stop = "距离本页面停止服务还有" + days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
     $(".over_time").html(stop);
 
-    // console.log(seconds + minutes + hours + days);
     return seconds + minutes + hours + days;
 };
 overTime();
 
-// 停止计时器
+/* 停止计时器 */
 let overTime_timer = setInterval(overTime, 1000);
 if (overTime() < 0) {
     $("#body").html("");
-    // 停止协议计时器
+    /* 停止协议计时器 */
     clearInterval(overTime_timer);
-    // 停止生日倒计时计时器
+    /* 停止生日倒计时计时器 */
     clearInterval(birthDay_time);
 } else {
     overTime_timer = setInterval(overTime, 1000);
 }
 
-// localStorage保存数据
+/* localStorage保存数据 */
 function local() {
     let local = localStorage.getItem("lsyBirthLocal");
     if (local == "true") {
@@ -95,7 +94,7 @@ function local() {
 };
 local();
 
-// 确认按钮
+/* 确认按钮 */
 $("#judge").on("click", () => {
     if ($("#judge").prop("checked") == true) {
         setTimeout(() => {
