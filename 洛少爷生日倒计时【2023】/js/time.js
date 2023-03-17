@@ -1,3 +1,4 @@
+/* time */
 function time() {
     let now_time = new Date().getTime();
     let target_time = new Date("2023-08-12 0:0:0").getTime();
