@@ -7,9 +7,6 @@ function win_size() {
     /* main */
     $("#main").css("height", win_height);
 
-    /* agreement */
-    $("#agreement").css("height", win_height);
-
     /* banner */
     $(".banner_img img").css({
         "width": "100%",
@@ -19,5 +16,8 @@ function win_size() {
     /* timer */
     $(".timer").css({
         "top": (win_height - timer_height) / 2 + "px"
-    })
+    });
+
+    /* agreement */
+    $("#agreement").css("height", win_height);
 };
