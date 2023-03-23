@@ -16,14 +16,21 @@ h2 {
   margin: 20px 0;
   text-align: center;
 }
+li,
 p {
   margin: 20px 0;
+  line-height: 25px;
 }
 a {
   color: #2850c8;
 }
 .author {
   text-align: right;
+}
+.over_time {
+  text-indent: 0;
+  font-size: 16px;
+  text-align: center;
 }
 @media screen and (max-width: 992px) {
   main {

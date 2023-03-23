@@ -20,4 +20,11 @@ function win_size() {
 
     /* agreement */
     $("#agreement").css("height", win_height);
+
+    let tip_height = $("#agreement .main").height();
+    let tip_width = $("#agreement .main").width();
+    $("#agreement .main").css({
+        "margin-top": -(tip_height / 2) + "px",
+        "margin-left": -(tip_width / 2) + "px",
+    });
 };
