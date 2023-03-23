@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+main {
+  margin-top: 30px;
+}
+#log {
+  max-width: 600px;
+  margin: 0 auto;
+  border-collapse: collapse;
+  line-height: 20px;
+}
+#log thead {
+  text-align: center;
+  font-size: 16px;
+}
+#log tbody {
+  font-size: 15px;
+}
+#log th,
+#log td {
+  padding: 5px 10px;
+  border: 1px solid #000;
+}
