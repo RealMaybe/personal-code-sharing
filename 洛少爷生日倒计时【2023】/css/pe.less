@@ -234,12 +234,13 @@
         top: 50%;
         left: 50%;
         width: 85%;
-        height: 85%;
+        height: 80%;
         margin: 0;
         background: #fff;
         border-radius: 1rem;
         overflow: hidden;
-        box-shadow: .1875rem .1875rem .3125rem #666;
+        border: .0625rem solid #ccc;
+        box-shadow: .3125rem .3125rem .625rem #aaa;
         
         .content {
             position: relative;
@@ -251,6 +252,9 @@
         
             h1 {
                 width: 100%;
+                padding-bottom: .5rem;
+                margin-bottom: .5rem;
+                border-bottom: .0625rem solid #ddd;
                 text-align: center;
                 font-size: 1.5rem;
                 line-height: 2.1875rem;
@@ -261,6 +265,10 @@
                 text-indent: 1em;
                 margin: .5rem 0;
                 line-height: 1.5rem;
+
+                &.em0 {
+                    text-indent: 0;
+                }
             }
 
             a {
@@ -269,7 +277,7 @@
             }
         }
 
-        // 确认按钮
+        // 确认框
         .affirm {
             position: absolute;
             bottom: 0;
@@ -279,10 +287,12 @@
             padding: .1875rem 1.25rem 0;
             line-height: 2.5rem;
             color: #000;
+            border-top: .0625rem solid #eee;
             font-weight: bold;
             background: rgba(255, 255, 255, .85);
             overflow: hidden;
             box-sizing: border-box;
+            box-shadow: -0.1875rem 0 3px #ddd;
 
             div {
                 width: 100%;
@@ -308,17 +318,21 @@
             }
 
             .button {
-                width: 12.5rem;
+                width: 10rem;
                 height: 2.3rem;
                 margin: -0.2rem auto 0;
-                border: .0625rem solid #333;
+                border-radius: .3rem;
                 line-height: 2.3rem;
                 text-align: center;
-                background: #bcbcbc;
+                background: rgba(235, 96, 96, 1);
+                color: #FFF;
                 box-shadow: .125rem .125rem .3125rem #ccc;
+                opacity: 0.3;
+                cursor: pointer;
 
                 &.on {
-                    background: #eee;
+                    background: rgba(17, 124, 238, 1);
+                    opacity: 1;
                 }
             }
         }

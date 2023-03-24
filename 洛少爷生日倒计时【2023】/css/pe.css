@@ -114,12 +114,13 @@
   top: 50%;
   left: 50%;
   width: 85%;
-  height: 85%;
+  height: 80%;
   margin: 0;
   background: #fff;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0.1875rem 0.1875rem 0.3125rem #666;
+  border: 0.0625rem solid #ccc;
+  box-shadow: 0.3125rem 0.3125rem 0.625rem #aaa;
 }
 #agreement .main .content {
   position: relative;
@@ -131,6 +132,9 @@
 }
 #agreement .main .content h1 {
   width: 100%;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 0.0625rem solid #ddd;
   text-align: center;
   font-size: 1.5rem;
   line-height: 2.1875rem;
@@ -140,6 +144,9 @@
   text-indent: 1em;
   margin: 0.5rem 0;
   line-height: 1.5rem;
+}
+#agreement .main .content p.em0 {
+  text-indent: 0;
 }
 #agreement .main .content a {
   color: #117cee;
@@ -154,10 +161,12 @@
   padding: 0.1875rem 1.25rem 0;
   line-height: 2.5rem;
   color: #000;
+  border-top: 0.0625rem solid #eee;
   font-weight: bold;
   background: rgba(255, 255, 255, 0.85);
   overflow: hidden;
   box-sizing: border-box;
+  box-shadow: -0.1875rem 0 3px #ddd;
 }
 #agreement .main .affirm div {
   width: 100%;
@@ -179,17 +188,21 @@
   vertical-align: middle;
 }
 #agreement .main .affirm .button {
-  width: 12.5rem;
+  width: 10rem;
   height: 2.3rem;
   margin: -0.2rem auto 0;
-  border: 0.0625rem solid #333;
+  border-radius: 0.3rem;
   line-height: 2.3rem;
   text-align: center;
-  background: #bcbcbc;
+  background: #eb6060;
+  color: #FFF;
   box-shadow: 0.125rem 0.125rem 0.3125rem #ccc;
+  opacity: 0.3;
+  cursor: pointer;
 }
 #agreement .main .affirm .button.on {
-  background: #eee;
+  background: #117cee;
+  opacity: 1;
 }
 #over_time.over_time {
   position: fixed !important;
