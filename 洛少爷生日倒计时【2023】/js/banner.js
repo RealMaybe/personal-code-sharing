@@ -33,7 +33,3 @@ function animation() {
 
 /* 轮播图 */
 animation();
-
-/* 浏览器窗口大小监听 */
-win_size();
-$(window).resize(win_size());

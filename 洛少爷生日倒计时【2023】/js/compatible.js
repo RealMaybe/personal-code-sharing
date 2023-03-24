@@ -28,3 +28,7 @@ function win_size() {
         "margin-left": -(tip_width / 2) + "px",
     });
 };
+
+/* 浏览器窗口大小监听 */
+win_size();
+$(window).resize(win_size());

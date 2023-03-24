@@ -103,7 +103,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.85);
   box-sizing: border-box;
   z-index: 99;
   overflow: hidden;
@@ -120,7 +120,7 @@
   border-radius: 1rem;
   overflow: hidden;
   border: 0.0625rem solid #ccc;
-  box-shadow: 0.3125rem 0.3125rem 0.625rem #aaa;
+  box-shadow: 0.1875rem 0.1875rem 0.625rem #aaa;
 }
 #agreement .main .content {
   position: relative;
@@ -142,11 +142,19 @@
 #agreement .main .content p {
   width: 100%;
   text-indent: 1em;
-  margin: 0.5rem 0;
+  margin-top: 0.5rem;
   line-height: 1.5rem;
 }
 #agreement .main .content p.em0 {
   text-indent: 0;
+}
+#agreement .main .content p.bor {
+  height: 0;
+  border-bottom: 0.0625rem solid #ddd;
+}
+#agreement .main .content p.fs {
+  font-size: 0.625rem;
+  text-align: center;
 }
 #agreement .main .content a {
   color: #117cee;
@@ -161,12 +169,12 @@
   padding: 0.1875rem 1.25rem 0;
   line-height: 2.5rem;
   color: #000;
-  border-top: 0.0625rem solid #eee;
+  border-top: 0.0625rem solid #ddd;
   font-weight: bold;
   background: rgba(255, 255, 255, 0.85);
   overflow: hidden;
   box-sizing: border-box;
-  box-shadow: -0.1875rem 0 3px #ddd;
+  box-shadow: -0.1875rem 0 3px #aaa;
 }
 #agreement .main .affirm div {
   width: 100%;
@@ -203,6 +211,30 @@
 #agreement .main .affirm .button.on {
   background: #117cee;
   opacity: 1;
+}
+#agreement .main #frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+#agreement .main #frame .close {
+  position: absolute;
+  top: 0.625rem;
+  right: 0.625rem;
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  background: url(../images/close.png) 0 0 no-repeat;
+  background-size: 100%;
+  border-radius: 50%;
+}
+#agreement .main #frame iframe {
+  width: 100%;
+  height: 100%;
 }
 #over_time.over_time {
   position: fixed !important;
