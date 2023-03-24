@@ -1,38 +1,34 @@
-/* 确认按钮 */
-$("#judge").on("click", () => {
-    if ($("#judge").prop("checked") == true) {
-        setTimeout(() => {
-            $("#agreement .affirm .button").addClass("on");
-        }, 400)
-    } else {
-        $("#agreement .affirm .button").removeClass("on");
-    }
-});
+/* over time */
+function overTime() {
+    let now_time = new Date().getTime();
+    let target_time = new Date("2023-08-15 0:0:0").getTime();
+    let difference = (target_time - now_time) / 1000;
 
-$("#agreement .affirm .button").on("click", () => {
-    if ($("#judge").prop("checked") == true) {
-        alert("1");
-    } else {
-        alert("请先确认阅读且了解以上所有内容！");
-    }
-});
+    let day = parseInt(difference / 60 / 60 / 24);
+    let hour = parseInt(difference / 60 / 60 % 24);
+    let minute = parseInt(difference / 60 % 60);
+    let second = parseInt(difference % 60);
 
-/* iframe */
-$(".link_page").on("click", function() {
-    if ($(this).hasClass("link_1")) {
-        $("#frame iframe").attr("src", "./page/explain.html");
-    }
-    if ($(this).hasClass("link_2")) {
-        $("#frame iframe").attr("src", "./page/agreement.html");
-    }
-    if ($(this).hasClass("link_3")) {
-        $("#frame iframe").attr("src", "./page/log.html");
-    }
-    $("#frame").css("display", "block");
-});
+    let seconds = numZero(parseInt(second % 60));
+    let minutes = numZero(parseInt(minute % 60));
+    let hours = numZero(parseInt(hour % 60));
+    let days = numZero(parseInt(day));
 
-/* close */
-$("#frame .close").on("click", () => {
-    $("#frame").css("display", "none");
-    $("#frame iframe").attr("src", "/");
-});
+    let stop = "距离本页面停止服务还有" + days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
+    $(".over_time").html(stop);
+
+    return seconds + minutes + hours + days;
+};
+overTime();
+
+/* 停止计时器 */
+let overTime_timer = setInterval(overTime, 1000);
+if (overTime() < 0) {
+    $("#body").html("");
+    /* 停止协议计时器 */
+    clearInterval(overTime_timer);
+    /* 停止生日倒计时计时器 */
+    clearInterval(birthDay_time);
+} else {
+    overTime_timer = setInterval(overTime, 1000);
+}
