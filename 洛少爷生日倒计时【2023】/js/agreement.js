@@ -21,7 +21,7 @@ function agreement() {
             <p style="text-align: right;">Author of this page: RealMaybe</p>
             <p class="bor"></p>
             <p class="em0 fs">本页面将于 2023年8月14日 24时 停止服务</p>
-            <p class="em0 fs">距离本页面停止服务还有00天00时00分00秒</p>
+            <p class="over_time em0 fs">距离本页面停止服务还有00天00时00分00秒</p>
         </div>
 
         <!-- 确认按钮 -->
