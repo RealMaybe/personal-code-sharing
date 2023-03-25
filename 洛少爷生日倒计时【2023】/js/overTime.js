@@ -14,7 +14,7 @@ function overTime() {
     let hours = numZero(parseInt(hour % 60));
     let days = numZero(parseInt(day));
 
-    let stop = "距离本页面停止服务还有" + days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
+    let stop = "距离页面停止服务还有" + days + "天" + hours + "时" + minutes + "分" + seconds + "秒";
     $(".over_time").html(stop);
 
     return seconds + minutes + hours + days;

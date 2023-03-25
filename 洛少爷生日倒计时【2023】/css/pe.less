@@ -11,6 +11,10 @@
     src: url(./华文行楷.ttf);
 }
 
+html {
+    font-size: 16px;
+}
+
 // main
 #main {
     position: relative;
@@ -118,42 +122,6 @@
             line-height: 1.25rem;
             font-size: 1.25rem;
         }
-    }
-}
-
-// a_con
-.a_con {
-    position: fixed;
-    left: 0;
-    bottom: 1.875rem;
-    display: none;
-    width: 6.875rem;
-    height: 2.5rem;
-    z-index: 10;
-    background: rgba(17, 124, 238, 1);
-    color: rgba(255, 255, 255, 1);
-    font-size: .875rem;
-    text-align: center;
-    line-height: 2.5rem;
-    overflow: hidden;
-    border-radius: 0 1.25rem 1.25rem 0;
-
-    &>span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 4.375rem;
-        height: 100%;
-    }
-
-    &>.close {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 2.5rem;
-        height: 2.5rem;
-        background: url(../images/close_w.png) 0 0 no-repeat;
-        background-size: 100%;
     }
 }
 
