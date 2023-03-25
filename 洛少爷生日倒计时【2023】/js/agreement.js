@@ -107,19 +107,17 @@ $("#frame .close").on("click", () => {
 });
 
 /* a_con */
-/*
-    $(".a_con .text").on("click", () => {
-        $(".a_con").css("display", "none");
-        localStorage.removeItem("lsyBirthLocal");
-        agreement();
-        $("#agreement").css("display", "block");
-        win_size();
-    });
-    
-    $(".a_con .close").on("click", () => {
-        $(".a_con").css("display", "none");
-    });
-*/
+// $(".a_con .text").on("click", () => {
+//     $(".a_con").css("display", "none");
+//     localStorage.removeItem("lsyBirthLocal");
+//     agreement();
+//     $("#agreement").css("display", "block");
+//     win_size();
+// });
+
+// $(".a_con .close").on("click", () => {
+//     $(".a_con").css("display", "none");
+// });
 
 /* 兼容 */
 win_size();
