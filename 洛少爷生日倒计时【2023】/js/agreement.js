@@ -49,10 +49,9 @@ function agreement() {
 function local() {
     let local = localStorage.getItem("lsyBirthLocal");
     if (local == "true") {
-        $("#agreement").css({
-            "display": "none"
-        });
+        $("#agreement").css("display", "none");
         $("#agreement").html("");
+        $(".a_con").css("display", "block");
     } else {
         agreement();
     }
@@ -60,7 +59,7 @@ function local() {
 };
 local();
 
-/* 确认按钮 */
+/* 确认 */
 $("#judge").on("click", () => {
     if ($("#judge").prop("checked") == true) {
         setTimeout(() => {
@@ -71,16 +70,16 @@ $("#judge").on("click", () => {
     }
 });
 
+/* 关闭按钮 */
 $("#agreement .affirm .button").on("click", function() {
     if ($("#judge").prop("checked") == true && $(this).hasClass("on")) {
         setTimeout(() => {
-            $("#agreement").css({
-                "display": "none"
-            });
+            $("#agreement").css("display", "none");
             $("#agreement").html("");
             /* 保存数据 */
             localStorage.setItem("lsyBirthLocal", "true");
             local();
+            $(".a_con").css("display", "block");
         })
     } else {
         alert("请您先确认阅读且了解以上所有内容！");
@@ -106,6 +105,21 @@ $("#frame .close").on("click", () => {
     $("#frame").css("display", "none");
     $("#frame iframe").attr("src", "");
 });
+
+/* a_con */
+/*
+    $(".a_con .text").on("click", () => {
+        $(".a_con").css("display", "none");
+        localStorage.removeItem("lsyBirthLocal");
+        agreement();
+        $("#agreement").css("display", "block");
+        win_size();
+    });
+    
+    $(".a_con .close").on("click", () => {
+        $(".a_con").css("display", "none");
+    });
+*/
 
 /* 兼容 */
 win_size();

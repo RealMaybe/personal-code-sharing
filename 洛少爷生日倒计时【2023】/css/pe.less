@@ -1,20 +1,24 @@
+// public
 * {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
+// font
 @font-face {
     font-family: STXingkai;
     src: url(./华文行楷.ttf);
 }
 
+// main
 #main {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
 
+    // banner
     .banner {
         position: relative;
         width: 100%;
@@ -60,6 +64,7 @@
         }
     }
 
+    // timer
     .timer {
         position: absolute;
         top: 25%;
@@ -116,106 +121,43 @@
     }
 }
 
-// #agreement {
-//     position: fixed;
-//     top: 0;
-//     left: 0;
-//     // display: none !important;
-//     width: 100%;
-//     height: 100%;
-//     padding: 1.25rem;
-//     background: rgba(0, 0, 0, .85);
-//     box-sizing: border-box;
-//     z-index: 99;
-//     overflow: hidden;
-//     font-size: 1.125rem;
-//     color: #FFF;
+// a_con
+.a_con {
+    position: fixed;
+    left: 0;
+    bottom: 1.875rem;
+    display: none;
+    width: 6.875rem;
+    height: 2.5rem;
+    z-index: 10;
+    background: rgba(17, 124, 238, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: .875rem;
+    text-align: center;
+    line-height: 2.5rem;
+    overflow: hidden;
+    border-radius: 0 1.25rem 1.25rem 0;
 
-//     h1 {
-//         position: absolute;
-//         top: 0;
-//         left: 0;
-//         width: 100%;
-//         height: 6.25rem;
-//         line-height: 2.1875rem;
-//         padding: 1.25rem 0 .3125rem;
-//         text-align: center;
-//         font-size: 1.5625rem;
-//         box-sizing: border-box;
-//         background-color: rgba(255, 255, 255, .4);
-//     }
-    
-//     #agreement_content {
-//         position: absolute;
-//         top: 6.25rem;
-//         left: 0;
-//         width: 100%;
-//         height: calc(100% - 8.75rem);
-//         padding: .625rem 1.25rem;
-//         box-sizing: border-box;
-//         overflow: auto;
-        
-//         h2 {
-//             width: 100%;
-//             margin: .7rem 0 .5rem;
-//             padding-top: .5rem;
-//             font-size: 1.25rem;
-//             text-align: center;
-//             border-top: .0625rem solid #666;
-//         }
-        
-//         p {
-//             width: 100%;
-//             text-indent: 1em;
-//             margin-bottom: .5rem;
-//         }
-        
-//         a {
-//             color: #FFF;
-//             font-weight: bold;
-//             // text-decoration: none;
-            
-//             &:hover {
-//                 color: #FFF;
-//             }
-//         }
-//     }
-    
-//     // 确认按钮
-//     .affirm {
-//         position: absolute;
-//         bottom: 0;
-//         left: 0;
-//         width: 100%;
-//         height: 2.5rem;
-//         padding: .1875rem 1.25rem 0;
-//         line-height: 2.5rem;
-//         color: #000;
-//         font-weight: bold;
-//         background: rgba(255, 255, 255, .85);
-//         overflow: hidden;
-//         box-sizing: border-box;
-        
-//         span {
-//             float: left;
-//             // display: inline-block;
-//             margin: .3125rem 0;
-//             font-size: 1rem;
-//             line-height: 1.25rem;
-//             width: auto;
-//             height: 1.25rem;
-//         }
-        
-//         #judge {
-//             float: right;
-//             width: 1.25rem;
-//             height: 1.25rem;
-//             margin: .3125rem 0;
-//             vertical-align: middle;
-//         }
-//     }
-// }
+    &>span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4.375rem;
+        height: 100%;
+    }
 
+    &>.close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: url(../images/close_w.png) 0 0 no-repeat;
+        background-size: 100%;
+    }
+}
+
+// agreement
 #agreement {
     position: fixed;
     top: 0;
@@ -236,11 +178,11 @@
         width: 85%;
         height: 80%;
         margin: 0;
-        background: #fff;
+        background: rgba(255, 255, 255, 1);
         border-radius: 1rem;
         overflow: hidden;
         border: .0625rem solid #ccc;
-        box-shadow: .1875rem .1875rem .625rem #aaa;
+        box-shadow: .1875rem .1875rem .625rem rgba(170, 170, 170, 1);
         
         .content {
             position: relative;
@@ -254,7 +196,7 @@
                 width: 100%;
                 padding-bottom: .5rem;
                 margin-bottom: .5rem;
-                border-bottom: .0625rem solid #ddd;
+                border-bottom: .0625rem solid rgba(221, 221, 221, 1);
                 text-align: center;
                 font-size: 1.5rem;
                 line-height: 2.1875rem;
@@ -272,7 +214,7 @@
 
                 &.bor {
                     height: 0;
-                    border-bottom: .0625rem solid #ddd;
+                    border-bottom: .0625rem solid rgba(221, 221, 221, 1);
                 }
 
                 &.fs {
@@ -297,12 +239,12 @@
             padding: .1875rem 1.25rem 0;
             line-height: 2.5rem;
             color: #000;
-            border-top: .0625rem solid #ddd;
+            border-top: .0625rem solid rgba(221, 221, 221, 1);
             font-weight: bold;
             background: rgba(255, 255, 255, .85);
             overflow: hidden;
             box-sizing: border-box;
-            box-shadow: -0.1875rem 0 3px #aaa;
+            box-shadow: -0.1875rem 0 3px rgba(170, 170, 170, 1);
 
             div {
                 width: 100%;
@@ -335,7 +277,7 @@
                 line-height: 2.3rem;
                 text-align: center;
                 background: rgba(235, 96, 96, 1);
-                color: #FFF;
+                color: rgba(255, 255, 255, 1);
                 box-shadow: .125rem .125rem .3125rem #ccc;
                 opacity: 0.3;
                 cursor: pointer;
@@ -347,6 +289,7 @@
             }
         }
 
+        // 内设网页
         #frame {
             position: absolute;
             top: 0;
@@ -354,7 +297,7 @@
             display: none;
             width: 100%;
             height: 100%;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 1);
 
             .close {
                 position: absolute;
@@ -376,6 +319,7 @@
     }
 }
 
+// over time
 #over_time.over_time {
     position: fixed !important;
     top: 0 !important;
