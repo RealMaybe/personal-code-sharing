@@ -33,8 +33,12 @@ function numZero(num) {
 let overTime_timer = setInterval(overTime, 1000);
 
 /* 停止计时器 */
+let overTime_content = `
+    <div>洛少爷2023生日倒计时 页面已停止服务</div>
+    <div>感谢您的使用</div>
+`;
 if (overTime() < 0) {
-    $("#body").html("");
+    $("#pe").html(overTime_content);
     /* 停止协议计时器 */
     clearInterval(overTime_timer);
     /* 停止生日倒计时计时器 */
