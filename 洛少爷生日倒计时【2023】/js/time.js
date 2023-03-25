@@ -22,6 +22,7 @@ function time() {
 
     $(".day").html(days + 1);
 };
+time();
 
 /* 数字如果小于零则一直显示0 */
 function numZero(num) {

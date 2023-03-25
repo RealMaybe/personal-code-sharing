@@ -21,8 +21,18 @@ function overTime() {
 };
 overTime();
 
-/* 停止计时器 */
+/* 数字如果小于零则一直显示0 */
+function numZero(num) {
+    if (num > 0) {
+        return num = num;
+    } else if (num <= 0) {
+        return num = 0;
+    }
+};
+
 let overTime_timer = setInterval(overTime, 1000);
+
+/* 停止计时器 */
 if (overTime() < 0) {
     $("#body").html("");
     /* 停止协议计时器 */
