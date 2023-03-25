@@ -30,6 +30,7 @@ p {
 }
 a {
   color: #117cee;
+  text-decoration: none;
 }
 .author {
   text-align: right;
