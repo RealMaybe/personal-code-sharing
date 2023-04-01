@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+    <!-- style -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main {
+            width: 400px;
+            height: auto;
+            padding: 20px 30px;
+            margin: 10px auto 0;
+            border: 1px solid #ccc;
+        }
+        
+        .main>div {
+            overflow: hidden;
+            width: 100%;
+            height: 50px;
+        }
+        
+        span {
+            float: left;
+            box-sizing: border-box;
+            width: 130px;
+            line-height: 50px;
+        }
+        
+        .btn_box,
+        input {
+            float: right;
+            box-sizing: border-box;
+            width: 250px;
+            height: 30px;
+            padding: 5px 10px;
+            margin: 10px 0;
+            outline: none;
+        }
+        
+        .btn_box {
+            overflow: hidden;
+            padding: 0;
+        }
+        
+        button {
+            float: left;
+            width: 45px;
+            height: 30px;
+            margin-right: 6px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        
+        button:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="p">
+            <span>请输入第一个数：</span>
+            <input type="text" id="num1">
+        </div>
+        <div class="p">
+            <span>请输入第二个数：</span>
+            <input type="text" id="num2">
+        </div>
+        <div class="p">
+            <span>请选择计算方法：</span>
+            <p class="btn_box">
+                <button onclick="count('+')">+</button>
+                <button onclick="count('-')">-</button>
+                <button onclick="count('*')">×</button>
+                <button onclick="count('/')">÷</button>
+                <button onclick="count('%')">%</button>
+            </p>
+        </div>
+        <div class="p">
+            <span>结果：</span>
+            <input type="text" id="result">
+        </div>
+    </div>
+
+    <!-- javascript -->
+    <script>
+        function count(methods) {
+            /* 获取数值输入框 */
+            var num1 = document.getElementById("num1").value;
+            var num2 = document.getElementById("num2").value;
+
+            /* 判断输入框是否为空或者无效值 */
+            if (num1 == "" || num2 == "") {
+                alert("请输入有效数值！！！");
+                return;
+            }
+
+            /* 将输入框中的内容转换为数值形式 */
+            num1 = Number(num1);
+            num2 = Number(num2);
+
+            /* 获取结果框 */
+            var result = document.getElementById("result");
+
+            /* 创建结果值 */
+            var result_num;
+
+            /* 加法 */
+            if (methods == "+") {
+                result_num = num1 + num2;
+            }
+
+            /* 减法 */
+            if (methods == "-") {
+                result_num = num1 - num2;
+            }
+
+            /* 乘法 */
+            if (methods == "*") {
+                result_num = num1 * num2;
+            }
+
+            /* 除法 */
+            if (methods == "/") {
+                /* 除数不可以为0 */
+                if (num2 == 0) {
+                    alert("除数不可以为0！！！");
+                    return;
+                }
+                result_num = num1 / num2;
+            }
+
+            /* 求余 */
+            if (methods == "%") {
+                /* 除数不可以为0 */
+                if (num2 == 0) {
+                    alert("除数不可以为0！！！");
+                    return;
+                }
+                result_num = num1 % num2;
+            }
+
+            result.value = result_num;
+        };
+    </script>
+
+    <!-- by RealMaybe -->
+    <!-- 
+        * @Author: RealMaybe
+        * @Date: 2023-04-01 22:25:02
+        * @Last Modified by: RealMaybe
+        * @Last Modified time: 2023-04-01 22:25:02
+     -->
+</body>
+
+</html>
+
+</html>
