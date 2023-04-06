@@ -145,7 +145,7 @@
     <script>
         /* 随机数字生成, 用于随机的颜色生成 */
         function num(n, m) {
-            var result = Math.random() * (m + 1 - n) + n;
+            let result = Math.random() * (m + 1 - n) + n;
             while (result > m) {
                 result = Math.random() * (m + 1 - n) + n;
             };
