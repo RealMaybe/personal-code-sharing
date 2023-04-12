@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计时器插件</title>
+    <!-- style -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        main {
+            width: 1000px;
+            height: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            margin: 15px auto;
+            overflow: hidden;
+            font-size: 25px;
+        }
+        
+        section {
+            width: 100%;
+            min-height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+        
+        button.take_btn {
+            max-height: 30px;
+            padding: 5px 10px;
+            margin: 10px 5px;
+            cursor: pointer;
+        }
+        
+        article.take {
+            width: 100%;
+            min-height: 50px;
+            overflow: auto;
+            border: 1px solid #000;
+            margin-top: 10px;
+        }
+        
+        article.take p {
+            width: 100%;
+            line-height: 50px;
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 992px) {
+            #main {
+                width: 90% !important;
+                margin: 15px auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- main -->
+    <main id="main">
+        <section class="thisTime">0000-00-00&nbsp;星期一&nbsp;00:00:00</section>
+        <section class="timer">00:00:00</section>
+
+        <section class="take_box">
+            <button class="take_btn" id="btn_begin" title="点击开始计时">开始</button>
+            <button class="take_btn" id="btn_record" title="点击记录当前计时" disabled="">记录</button>
+            <button class="take_btn" id="btn_cease" title="点击停止计时" disabled="">停止</button>
+            <button class="take_btn" id="btn_clear" title="点击清除所有计时">清除</button>
+        </section>
+
+        <article class="take"></article>
+    </main>
+
+    <!-- javascript -->
+
+    <!-- jquery -->
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- 函数主体 -->
+    <script>
+        /* 窗口兼容 */
+        function win_size() {
+            /* 获取窗口高度、宽度 */
+            let win_height = $(window).height();
+
+            /* 主体兼容 */
+            $("#main").css({
+                "height": win_height - 30 + "px"
+            });
+
+            let thisTime_height = $(".thisTime").height();
+            let timer_height = $(".timer").height();
+            let take_box_height = $(".take_box").height();
+
+            let take_height = win_height - thisTime_height - timer_height - take_box_height - 50;
+
+            $(".take").css({
+                "height": take_height + "px"
+            });
+        };
+
+        /* 时间获取 */
+        function thisTime() {
+            let d = new Date();
+            let year = d.getFullYear();
+            let month = d.getMonth() + 1; // 0~11
+            let date = d.getDate();
+
+            let week = d.getDay(); // 0~6 0是周日
+            week = numOfChinese(week);
+
+            let hour = doubleNum(d.getHours());
+            let min = doubleNum(d.getMinutes());
+            let sec = doubleNum(d.getSeconds());
+
+            let thisTime_str = year + "-" + month + "-" + date + "&nbsp;星期" + week + "&nbsp;" + hour + ":" + min + ":" + sec;
+
+            return thisTime_str;
+        };
+
+        /* 数字转成中文 */
+        function numOfChinese(num) {
+            let arr = ["日", "一", "二", "三", "四", "五", "六"];
+            return arr[num];
+        };
+
+        /* 不足两位，前面补0 */
+        function doubleNum(n) {
+            if (n < 10) {
+                return "0" + n;
+            } else {
+                return n;
+            }
+        };
+
+        /* 计时器 */
+        let sec = 0;
+        let min = 0;
+        let hour = 0;
+
+        function timerFun() {
+            /* 秒 */
+            sec++;
+            $(".sec").html(doubleNum(sec));
+            /* 分钟 */
+            if (sec > 59) {
+                min++;
+                $(".min").html(doubleNum(min));
+
+                sec = 0;
+                $(".sec").html(doubleNum(sec));
+
+            }
+            /* 小时 */
+            if (min > 59) {
+                hour++;
+                $(".hour").html(doubleNum(hour));
+
+                min = 0;
+                $(".min").html(doubleNum(min));
+            }
+            /* 写入 */
+            let timer_str = doubleNum(hour) + ":" + doubleNum(min) + ":" + doubleNum(sec);
+            $(".timer").html(timer_str);
+        };
+
+        /* 按钮禁用与启用 */
+        function btn_disabled(disabled_num) {
+            if (disabled_num == 0) {
+                /* 禁用开始 */
+                $("#btn_begin").attr("disabled", "");
+                /* 启用停止和记录 */
+                $("#btn_cease").removeAttr("disabled");
+                $("#btn_record").removeAttr("disabled");
+            }
+            if (disabled_num == 1) {
+                /* 禁用停止和记录 */
+                $("#btn_cease").attr("disabled", "");
+                $("#btn_record").attr("disabled", "");
+                /* 启用开始 */
+                $("#btn_begin").removeAttr("disabled");
+            }
+        }
+    </script>
+
+    <!-- 执行单位 -->
+    <script>
+        /* 主体兼容 */
+        win_size();
+        $(window).resize(win_size());
+
+        /* 当前时间显示 */
+        $(".thisTime").html(thisTime());
+        setInterval(() => {
+            $(".thisTime").html(thisTime());
+        }, 1000);
+
+        /* 计时器 */
+        let timer_class;
+
+        /* 开始按钮 */
+        $("#btn_begin").on("click", () => {
+            $(".timer").html("00:00:00");
+            sec = 0;
+            min = 0;
+            hour = 0;
+            timer_class = setInterval(timerFun, 1000);
+            btn_disabled(0);
+        });
+
+        /* 清除按钮 */
+        $("#btn_clear").on("click", () => {
+            $(".take").html("");
+        });
+
+        /* 停止按钮 */
+        $("#btn_cease").on("click", () => {
+            clearInterval(timer_class);
+            btn_disabled(1);
+        });
+
+        /* 记录按钮 */
+        $("#btn_record").on("click", () => {
+            let thisTime_str = $(".timer").html();
+            let take_time = `<p class="take_time">` + thisTime_str + `</p>`;
+            $(".take").prepend(take_time);
+        });
+    </script>
+
+</body>
+
+</html>
