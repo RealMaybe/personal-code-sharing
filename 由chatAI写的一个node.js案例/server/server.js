@@ -7,6 +7,8 @@ const port = 8080;
 const cors = require('cors');
 app.use(cors());
 
+app.use(express.static('public'));
+
 // 使用body-parser中间件解析请求体
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
