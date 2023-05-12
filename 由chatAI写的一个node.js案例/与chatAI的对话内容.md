@@ -224,7 +224,7 @@ Node.js是一个用于开发高性能、可伸缩的网络应用程序的JavaScr
 
 下面是一个基于Express框架实现的后端代码示例，可以实现登录注册和数据保存的功能。请注意，这只是一个简单的示例代码，需要根据您的实际需求进行适当更改和完善。
 
-```
+```js
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');

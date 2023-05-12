@@ -6,9 +6,9 @@
 
 ## 使用须知
 
-本案例已发布之csdn和github。
-csdn访问地址：
-github访问地址：
+本案例已发布至csdn和github。
+- csdn访问地址：https://blog.csdn.net/RealMaybe/article/details/130644697
+- github访问地址：https://github.com/RealMaybe/personal-code-sharing.git
 
 【server】文件夹中的内容为服务端代码
 【request_page】文件夹中的内容为页面代码
@@ -40,5 +40,8 @@ github访问地址：
 ===
 
 随后，可使用node的服务器或者使用vscode中的Live Server将login.html文件启动运行
+
+**如果这个提示文本出现了错误，请及时联系我**
+**本人工作邮箱：** *zlz_0910@163.com*
 
 **By RealMaybe**
