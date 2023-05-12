@@ -1,0 +1,13 @@
+# 忽略 node_modules 文件夹和所有子目录下的文件
+node_modules/
+
+# 忽略所有以 .log 后缀结尾的文件
+*.log
+
+# 忽略 .env 和 .env.local 文件
+.env
+.env.local
+
+# 忽略 .DS_Store 文件和 .vscode 文件夹
+.DS_Store
+.vscode/

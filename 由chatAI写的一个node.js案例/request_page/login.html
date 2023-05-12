@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login/Signup Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style -->
+    <link rel="stylesheet" href="./css/login.css">
+</head>
+
+<body>
+    <header>
+        <h1>Login/Signup Page</h1>
+    </header>
+
+    <main>
+        <form id="loginForm" class="form">
+            <h2>Login</h2>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="login-username">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="login-password">
+            <button type="button" id="login-btn">Login</button>
+        </form>
+
+        <form id="signupForm" class="form">
+            <h2>SignUp</h2>
+            <label for="signup-username">Username:</label>
+            <input type="text" name="signup-username" id="signup-username">
+            <label for="signup-password">Password:</label>
+            <input type="password" name="signup-password" id="signup-password">
+            <button type="button" id="signup-btn">SignUp</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy;2023 All rights reserved.<br>Authors: Your Name</p>
+    </footer>
+
+    <!-- javascript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./js/login.js"></script>
+</body>
+
+</html>
